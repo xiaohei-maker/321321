@@ -1,0 +1,39 @@
+2021-10-06 17:07:22.580  INFO 18144 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 1.8.0_221 on DESKTOP-8LLDCBD with PID 18144 (C:\Users\xiaohei\Desktop\dem\target\classes started by xiaohei in C:\Users\xiaohei\Desktop\dem)
+2021-10-06 17:07:22.586  INFO 18144 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2021-10-06 17:07:22.686  WARN 18144 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-10-06 17:07:24.282  INFO 18144 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8088 (http)
+2021-10-06 17:07:24.304  INFO 18144 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 17:07:24.305  INFO 18144 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-10-06 17:07:24.525  INFO 18144 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 17:07:24.525  INFO 18144 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1880 ms
+2021-10-06 17:07:24.734  INFO 18144 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-10-06 17:07:24.868  INFO 18144 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-10-06 17:07:25.344  INFO 18144 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-06 17:07:25.410  INFO 18144 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-10-06 17:07:25.550  INFO 18144 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-10-06 17:07:25.607  INFO 18144 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8088 (http) with context path ''
+2021-10-06 17:07:25.614  INFO 18144 --- [scheduling-1] com.example.demo.schedule.HotTagTasks    : hotTagSchedule start Wed Oct 06 17:07:25 CST 2021
+2021-10-06 17:07:25.617  INFO 18144 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.49 seconds (JVM running for 4.65)
+2021-10-06 17:07:25.922  INFO 18144 --- [scheduling-1] com.example.demo.schedule.HotTagTasks    : hotTagSchedule stop Wed Oct 06 17:07:25 CST 2021
+2021-10-06 17:07:37.231  INFO 18144 --- [http-nio-8088-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [1631956965,1632040591,1632045377; CNZZDATA1274181517=1457069047-1631262446-null%7C1632101443; Hm_lvt_1bc42b8718882e00be9c50738797ec40=1631429260,1631710050,1631885413,1632106271; token=e1581dbe-ad2e-4e3b-bfb2-3612d2df9e4d] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2021-10-06 17:07:37.244  INFO 18144 --- [http-nio-8088-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 17:07:37.246  INFO 18144 --- [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 17:07:37.248  INFO 18144 --- [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-10-06 19:48:11.644  INFO 8644 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 1.8.0_221 on DESKTOP-8LLDCBD with PID 8644 (C:\Users\xiaohei\Desktop\dem\target\classes started by xiaohei in C:\Users\xiaohei\Desktop\dem)
+2021-10-06 19:48:11.651  INFO 8644 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2021-10-06 19:48:11.784  WARN 8644 --- [background-preinit] o.s.h.c.j.Jackson2ObjectMapperBuilder    : For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+2021-10-06 19:48:12.810  INFO 8644 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8088 (http)
+2021-10-06 19:48:12.818  INFO 8644 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 19:48:12.818  INFO 8644 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-10-06 19:48:12.940  INFO 8644 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 19:48:12.940  INFO 8644 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1186 ms
+2021-10-06 19:48:13.057  INFO 8644 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2021-10-06 19:48:13.180  INFO 8644 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2021-10-06 19:48:13.675  INFO 8644 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-10-06 19:48:13.748  INFO 8644 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-10-06 19:48:13.879  INFO 8644 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-10-06 19:48:13.924  INFO 8644 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8088 (http) with context path ''
+2021-10-06 19:48:13.934  INFO 8644 --- [scheduling-1] com.example.demo.schedule.HotTagTasks    : hotTagSchedule start Wed Oct 06 19:48:13 CST 2021
+2021-10-06 19:48:13.937  INFO 8644 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 2.922 seconds (JVM running for 4.255)
+2021-10-06 19:48:14.285  INFO 8644 --- [scheduling-1] com.example.demo.schedule.HotTagTasks    : hotTagSchedule stop Wed Oct 06 19:48:14 CST 2021
