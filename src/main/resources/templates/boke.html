@@ -55,7 +55,7 @@
 </head>
 <body style="background-color: #8feeaf">
 <header>
-    <div class="touxiang"><i><img src="badges/logo.png" alt="杨青青"></i>
+    <div class="touxiang"><i><img src="badges/logo.png" alt="小黑"></i>
         <h2>小黑</h2>
         <p>一个00后大学生。</p>
     </div>
@@ -63,7 +63,7 @@
     <nav>
         <ul>
             <li class="current"><a href="index.html">网站首页</a></li>
-            <li><a href="/insert1">碎言碎语</a></li>
+<!--            <li><a href="/insert1">碎言碎语</a></li>-->
 <!--            <li><a href="sysy.html">碎言碎语</a></li>-->
 <!--            <li><a href="bkrj.html">博客日记</a></li>-->
 <!--            <li><a href="wdxc.html">我的相册</a></li>-->
@@ -109,7 +109,7 @@
                             <img th:src="${bake.image}" alt="标题图片">
                         </i>
                         <h2>
-                            <a th:href="@{'/boke/'+ ${bake.id}}" th:text="${bake.title}" style="color: #00c4ff"></a>
+                            <a th:href="@{'/boke/question/'+ ${bake.id}}" th:text="${bake.title}" style="color: #00c4ff"></a>
                         </h2>
 
 <!--                        <h2 th:text="${bake.title}"></h2>-->
@@ -191,15 +191,15 @@
     <!--article end-->
 
     <aside>
-        <div class="search">
-            <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
-                <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
-                <input name="show" value="title" type="hidden">
-                <input name="tempid" value="1" type="hidden">
-                <input name="tbname" value="news" type="hidden">
-                <input name="Submit" class="input_submit" value="搜索" type="submit">
-            </form>
-        </div>
+<!--        <div class="search">-->
+<!--            <form action="/e/search/index.php" method="post" name="searchform" id="searchform">-->
+<!--                <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">-->
+<!--                <input name="show" value="title" type="hidden">-->
+<!--                <input name="tempid" value="1" type="hidden">-->
+<!--                <input name="tbname" value="news" type="hidden">-->
+<!--                <input name="Submit" class="input_submit" value="搜索" type="submit">-->
+<!--            </form>-->
+<!--        </div>-->
         <div class="xinqing">
             <h2 class="aside_title">最近心情</h2>
             <ul>
@@ -215,14 +215,14 @@
             <h2 class="aside_title">我的相册</h2>
             <ul>
                 <li><a href="/" target="_blank"><img src="images/001.jpg"></a></li>
-                <li><a href="/" target="_blank"><img src="images/002.png"></a></li>
+                <li><a href="/" target="_blank"><img src="images/002.jpg"></a></li>
                 <li><a href="/" target="_blank"><img src="images/003.jpg"></a></li>
                 <li><a href="/" target="_blank"><img src="images/004.jpg"></a></li>
                 <li><a href="/" target="_blank"><img src="images/005.jpg"></a></li>
                 <li><a href="/" target="_blank"><img src="images/006.jpg"></a></li>
-                <li><a href="/" target="_blank"><img src="images/002.png"></a></li>
-                <li><a href="/" target="_blank"><img src="images/003.jpg"></a></li>
-                <li><a href="/" target="_blank"><img src="images/004.jpg"></a></li>
+                <li><a href="/" target="_blank"><img src="images/007.jpg"></a></li>
+                <li><a href="/" target="_blank"><img src="images/008.jpg"></a></li>
+                <li><a href="/" target="_blank"><img src="images/009.jpg"></a></li>
             </ul>
         </div>
         <div class="paihang">
@@ -241,19 +241,22 @@
             </ol>
         </div>
         <div class="links">
-            <h2 class="aside_title"><span><a href="/" target="_blank">申请</a></span>友情链接</h2>
+            <h2 class="aside_title">
+                <span>
+<!--                <a href="/" target="_blank">申请</a>-->
+            </span>友情链接</h2>
             <ul>
-                <li><a href="https://www.qingqingblog.com" target="_blank">杨青青个人博客</a></li>
-                <li><a href="/" target="_blank">搜图片</a></li>
-                <li><a href="/" target="_blank">今夕何夕模板</a></li>
-                <li><a href="/" target="_blank">青于蓝门户网站</a></li>
+                <li><a href="http://freecommunity.link/" target="_blank">小黑社区</a></li>
+<!--                <li><a href="/" target="_blank">搜图片</a></li>-->
+<!--                <li><a href="/" target="_blank">今夕何夕模板</a></li>-->
+<!--                <li><a href="/" target="_blank">青于蓝门户网站</a></li>-->
             </ul>
         </div>
     </aside>
     <!--aside end-->
 </main>
 <footer>
-    <p> © 2019-2020qingqingblog.com 版权所有：<a href="https://www.qingqingblog.com" target="_blank">杨青青个人博客</a></p>
+    <p> © 2021-qingqingblog.com 版权所有：<a href="http://freecommunity.link/" target="_blank">小黑个人博客</a></p>
     <p><span><a href="/" target="_blank">XML网站地图</a></span><span>备案号：<a href="/">津ICP备19004899</a></span><span><img src="images/ga.png">公安备案号 12011602000311</span></p>
     <p></p>
 </footer>

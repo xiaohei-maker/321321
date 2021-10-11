@@ -70,7 +70,7 @@ public class QuestionService {
         }
 
         Integer totalCount = questionExtMapper.countBySearch(questionQueryDTO);
-
+        //Integer totalCount=14;
         if (totalCount % size == 0) {
             totalPage = totalCount / size;
         } else {
@@ -200,6 +200,8 @@ public class QuestionService {
         questionExtMapper.incView(question);
     }
 
+
+
     public List<QuestionDTO> selectRelated(QuestionDTO queryDTO) {
         if (StringUtils.isBlank(queryDTO.getTag())) {
             return new ArrayList<>();
@@ -224,4 +226,6 @@ public class QuestionService {
         }).collect(Collectors.toList());
         return questionDTOS;
     }
+
+
 }

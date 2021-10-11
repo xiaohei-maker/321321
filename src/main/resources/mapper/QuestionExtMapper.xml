@@ -25,6 +25,8 @@
     where id = #{id}
     </update>
 
+
+
   <update id="incCommentCount" parameterType="com.example.demo.Model.Question">
     update QUESTION
     set

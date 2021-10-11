@@ -1,6 +1,7 @@
 package com.example.demo.Service;
 
 import com.example.demo.Mapper.BokeMapper;
+import com.example.demo.Mapper.BokequestionExtMapper;
 import com.example.demo.Model.*;
 import com.example.demo.dto.PaginationDTO;
 import org.apache.ibatis.session.RowBounds;
@@ -13,6 +14,8 @@ import java.util.List;
 public class BokeService {
     @Autowired
     private BokeMapper bokeMapper;
+    @Autowired
+    private BokequestionExtMapper bokequestionExtMapper;
     public PaginationDTO selectById(Integer page, Integer size) {
         PaginationDTO paginationDTO = new PaginationDTO();
 
@@ -38,6 +41,9 @@ public class BokeService {
 
         Integer offset = size * (page - 1);
         List<Boke> bokeList=bokeMapper.selectByExampleWithRowbounds(bokeExample,new RowBounds(offset,size));
+        for (Boke b:bokeList){
+            String a=b.getDescription();
+        }
         paginationDTO.setData(bokeList);
         return  paginationDTO;
     }
@@ -59,5 +65,22 @@ public class BokeService {
 
         }
         return  null;
+    }
+
+    public Boke selectBySigleId(Integer id) {
+//        BokeExample bokeExample = new BokeExample();
+////        bokeExample.createCriteria().
+////                andDescriptionEqualTo(someone);
+//        bokeExample.createCriteria().
+//                andIdEqualTo(Integer.valueOf(id));
+        Boke bokes=  bokeMapper.selectByPrimaryKey(id);
+        return  bokes;
+    }
+
+    public void incView(Integer id) {
+        Boke boke = new Boke();
+        boke.setId(id);
+        boke.setLookcount(1);
+        bokequestionExtMapper.incView(boke);
     }
 }

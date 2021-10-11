@@ -2,14 +2,18 @@ package com.example.demo.Controller;
 
 import com.example.demo.Model.Boke;
 import com.example.demo.Service.BokeService;
+import com.example.demo.Service.CommentService;
+import com.example.demo.Service.QuestionService;
+import com.example.demo.dto.CommentDTO;
 import com.example.demo.dto.PaginationDTO;
+import com.example.demo.dto.QuestionDTO;
+import com.example.demo.enums.CommentTypeEnum;
+import com.example.demo.exception.CustomizeErrorCode;
+import com.example.demo.exception.CustomizeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +25,11 @@ public class BokeController {
         @Autowired
         private BokeService bokeService;
 
+        @Autowired
+        private QuestionService questionService;
 
+        @Autowired
+        private CommentService commentService;
         @RequestMapping("/boke")
          public  String show(HttpServletRequest request,
                         HttpServletResponse response, Model model,
@@ -52,6 +60,21 @@ public class BokeController {
         String listid = ins1;
         String a=bokeService.updata(likecount,listid);
         return  "boke";
+    }
+
+
+    @RequestMapping("/boke/question/{id}")
+    public String sh(HttpServletRequest request,
+                     HttpServletResponse response,
+                     @PathVariable(name = "id") Integer id, Model model){
+
+        Boke  boke= bokeService.selectBySigleId(id);
+        //累加阅读数
+        bokeService.incView(id);
+        model.addAttribute("boke", boke);
+//        model.addAttribute("comments", comments);
+//        model.addAttribute("relatedQuestions", relatedQuestions);
+        return "bokequestion";
     }
 
 }

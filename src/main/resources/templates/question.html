@@ -120,12 +120,16 @@
                             <div th:text="${comment.content}"></div>
                             <div class="menu">
 
-                                <span th:if="${session.user != null}"
-                                        onclick="collapseLikes(this)" class="comment-icon">
-                                    <span class="glyphicon glyphicon-thumbs-up icon"></span>
-                                </span>
+<!--                                <span th:if="${session.user != null}"-->
+<!--                                        onclick="collapseLikes(this)" class="comment-icon">-->
+<!--                                    <span class="glyphicon glyphicon-thumbs-up icon"></span>-->
+<!--                                </span>-->
 
-                                <span class="glyphicon glyphicon-thumbs-up icon"></span>
+
+                             <span  th:if="${session.user != null}" class="comment-icon" th:id="${'like-'+comment.id}">
+                                 <span class="glyphicon glyphicon-thumbs-up icon" onclick="collapseLikes(this)"  th:dat-id="${comment.id}" ></span>
+                                 <span th:text="${comment.likeCount}"  name="likecount" th:id="${'lk-'+comment.id}"></span>
+                             </span>
 
                                 <span th:data-id="${comment.id}"
                                       onclick="collapseComments(this)" class="comment-icon">
@@ -150,6 +154,49 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                    function collapseLikes(e) {
+                        var id = e.getAttribute("dat-id");
+                        var ins = document.getElementById("lk-"+id).innerHTML;
+                        var a=document.getElementById("lk-"+id).var;
+                        if (a==undefined){
+                            ins++;
+                            document.getElementById("lk-"+id).var=1;
+                            $("#like-"+id).css("color","red");
+                        }else  if(a==0){
+                            ins++;
+                            document.getElementById("lk-"+id).var=1;
+                            $("#like-"+id).css("color","red");
+                            //document.getElementById("like").css("color","green")
+                        }else  if(a==1){
+                            ins--;
+                            document.getElementById("lk-"+id).var=0;
+                            $("#like-"+id).css("color","#A4A4A4");
+                        }
+
+                        document.getElementById("lk-"+id).innerHTML=ins;
+                        // var  ins1=document.getElementById("txqt").innerHTML;
+                        var  ins1=id;
+                        $.ajax({
+                            url:"/ll",//要请求的服务器url
+                            data:{ins:ins,ins1:ins1},//第一个name对应的是后端request.getParameter("name")的name、第二个name对应的是此js中的var name = $("#name").val();的name
+                            async:true,//是否是异步请求
+                            cache:false,//是否缓存结果
+                            type:"POST",//请求方式
+                            dataType:"text",//服务器返回什么类型数据 text xml javascript json(javascript对象)
+                            success:function(result){//函数会在服务器执行成功后执行，result就是服务器返回结果
+                                //alert(result);
+                                console.log(result);
+                                // $("#re").html(result);
+                            },
+                            error:function(jqXHR, textStatus, errorThrown) {
+                            }
+                        });
+                    }
+
+
+
+                </script>
             </div>
 
             <!--回复输入框-->

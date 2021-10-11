@@ -140,4 +140,23 @@ public class CommentService {
 
         return commentDTOS;
     }
+
+
+    public void incLikeCount(Integer likecount, String listid) {
+        CommentExample commentExample = new CommentExample();
+//        bokeExample.createCriteria().
+//                andDescriptionEqualTo(someone);
+        commentExample.createCriteria().
+                andIdEqualTo(Long.valueOf(listid));
+        List<Comment> bokes=commentMapper.selectByExample(commentExample);
+        if (bokes.size() != 0) {
+            // 插入
+            Comment updateUser = new Comment();
+            updateUser.setLikeCount(likecount);
+            commentMapper.updateByExampleSelective(updateUser, commentExample);
+        } else {
+
+        }
+
+    }
 }

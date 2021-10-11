@@ -44,10 +44,11 @@ function comment2target(targetId, type, content) {
                 if (response.code == 2003) {
                     var isAccepted = confirm(response.message);
                     if (isAccepted) {
-                        window.open("https://github.com/login/oauth/authorize?client_id=a65503a4e5242623c038&redirect_uri=" + document.location.origin + "/callback&scope=user&state=1");
+                        window.open("http://localhost:8088/denglu");
                         window.localStorage.setItem("closable", true);
                     }
                 } else {
+
                     alert(response.message);
                 }
             }
