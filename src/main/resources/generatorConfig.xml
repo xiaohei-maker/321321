@@ -38,7 +38,9 @@
         <table tableName="nav" domainObjectName="Nav"></table>
         <table tableName="ad" domainObjectName="Ad"></table>
         <table tableName="video" domainObjectName="Video"></table>
+        <table tableName="videolist" domainObjectName="Videolist"></table>
         <table tableName="boke" domainObjectName="Boke"></table>
+
 
     </context>
 </generatorConfiguration>

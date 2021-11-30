@@ -20,15 +20,19 @@
 
 </head>
 <body>
+<div    th:insert="~{begin::nav}"></div>
 <div class="container" style="margin-top: 17px">
     <div class="row" deep="1">
         <div class="stui-pannel clearfix">
             <ul class="stui-screen__list clearfix">
                                 <p>
                                     <span class="breadcrumb">
-                                    <a href="/">首页</a>&nbsp;&nbsp;»&nbsp;&nbsp;
-                                    <a href="/vod-list-id-4-pg-1.html">动漫</a>&nbsp;&nbsp;»&nbsp;&nbsp;
-                                    <a href="/vod-detail-id-70411.html">火力少年王</a>
+                                    <a href="/shiping">首页</a>&nbsp;&nbsp;»&nbsp;&nbsp;
+                                    <a th:if="${videoss.type==1}" th:href="@{'/vod-list-id-/'+${videoss.type}}">电影</a>
+                                        <a th:if="${videoss.type==2}" th:href="@{'/vod-list-id-/'+${videoss.type}}">电视剧</a>
+                                        <a th:if="${videoss.type==3}" th:href="@{'/vod-list-id-/'+${videoss.type}}">综艺</a>
+                                        <a th:if="${videoss.type==4}" th:href="@{'/vod-list-id-/'+${videoss.type}}">动漫</a>&nbsp;&nbsp;»&nbsp;&nbsp;
+                                    <a th:href="@{'/show/'+${videoss.id}}" th:text="${videoss.title}"></a>
                                      </span>
 
                                 </p>
@@ -59,7 +63,7 @@
     $(".MacPlayer").addClass("embed-responsive").css("padding-bottom","56.25%");
     $('.stui-content__playlist li[data-id="'+$('.stui-content__playlist[data-active]').attr('data-active')+'"]').addClass("active");
 </script>
-<div style="text-align: center">
+<div style="text-align: center;margin-top: 170px">
     <p><a href="/">返回首页</a><span class="split-line"></span><a href="javascript:scroll(0, 0)">返回顶部</a></p>
     <p>免责申明:本站所有内容均来源于互联网相关站点自动搜索的结果，不存放任何资源！</p>
     <p>所有视频版权归原权利人，将于24小时内删除！我们强烈建议所有影视爱好者购买正版音像制品！</p>
