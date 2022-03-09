@@ -1,9 +1,11 @@
 body {
-    background-color: #8feeaf;
+    /*background-color: #8feeaf;*/
+    background-image: url("/images/2.png");
 }
 
 .main {
     background-color: #d3d7dc;
+    /*background-image: image("/images/2.png");*/
     margin: 30px;
 }
 

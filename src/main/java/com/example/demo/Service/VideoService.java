@@ -3,13 +3,9 @@ package com.example.demo.Service;
 import com.example.demo.Mapper.*;
 import com.example.demo.Model.*;
 import com.example.demo.dto.PaginationDTO;
-import com.example.demo.dto.QuestionDTO;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

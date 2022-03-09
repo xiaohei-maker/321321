@@ -44,7 +44,7 @@ function comment2target(targetId, type, content) {
                 if (response.code == 2003) {
                     var isAccepted = confirm(response.message);
                     if (isAccepted) {
-                        window.open("http://localhost:8088/denglu");
+                        window.open("http://freecommunity.link/denglu");
                         window.localStorage.setItem("closable", true);
                     }
                 } else {

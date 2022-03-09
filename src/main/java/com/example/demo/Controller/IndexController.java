@@ -4,6 +4,7 @@ import com.example.demo.Model.User;
 import com.example.demo.Service.QuestionService;
 import com.example.demo.Service.UserService;
 import com.example.demo.cache.HotTagCache;
+import com.example.demo.dto.FileDto;
 import com.example.demo.dto.PaginationDTO;
 
 import com.example.uitils.Base64Utils;
@@ -14,13 +15,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -31,6 +38,8 @@ public class IndexController {
     @Autowired
     private QuestionService questionService;
 
+    @Autowired
+    private  FileUploadController fileUploadController;
     @Autowired
     private HotTagCache hotTagCache;
 
@@ -62,31 +71,68 @@ public class IndexController {
     @RequestMapping(value = "/zhu",method = RequestMethod.POST)
     public String zhuce(HttpServletRequest request,
                         HttpServletResponse response,
-                        Model model,
-                        @RequestParam(name = "page", defaultValue = "1") Integer page,
-                        @RequestParam(name = "size", defaultValue = "10") Integer size,
-                        @RequestParam(name = "search", required = false) String search,
-                        @RequestParam(name = "tag", required = false) String tag,
-                        @RequestParam(name = "sort", required = false) String sort) {
+//                        Model model,
+                       MultipartFile file
+//                        @RequestParam(name = "page", defaultValue = "1") Integer page,
+//                        @RequestParam(name = "size", defaultValue = "10") Integer size,
+//                        @RequestParam(name = "search", required = false) String search,
+//                        @RequestParam(name = "tag", required = false) String tag,
+//                        @RequestParam(name = "sort", required = false) String sort
+    ) throws FileNotFoundException {
 
         HttpSession session=request.getSession();
-        PaginationDTO pagination = questionService.list(search, tag, sort, page, size);
-        List<String> tags = hotTagCache.getHots();
-        model.addAttribute("pagination", pagination);
-        model.addAttribute("search", search);
-        model.addAttribute("tag", tag);
-        model.addAttribute("tags", tags);
-        model.addAttribute("sort", sort);
+//        PaginationDTO pagination = questionService.list(search, tag, sort, page, size);
+//        List<String> tags = hotTagCache.getHots();
+//        model.addAttribute("pagination", pagination);
+//        model.addAttribute("search", search);
+//        model.addAttribute("tag", tag);
+//        model.addAttribute("tags", tags);
+//        model.addAttribute("sort", sort);
         User user=new User();
         //生成标识
         String token= UUID.randomUUID().toString();
-        String file=request.getParameter("file");
+//        String file=request.getParameter("file");
+
+
+        File path = new File(ResourceUtils.getURL("classpath:").getPath());
+        File upload = new File(path.getAbsolutePath(),"static/upload/");
+
+//            getUploadFileName(file);
+//        File targetFile = new File(upload,file.getOriginalFilename());
+
+        String uploadFileName = file.getOriginalFilename();
+        String fileName = uploadFileName.substring(0,
+                uploadFileName.lastIndexOf("."));
+        String type = uploadFileName.substring(uploadFileName.lastIndexOf("."));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        String timeStr = sdf.format(new Date());
+        String name = fileName + "_" + timeStr + type;
+
+
+
+//        String filename=fileUploadController.getUploadFileName(file);
+        try {
+            File targetFile = new File(upload,name);
+            if(!targetFile.getParentFile().exists())
+                targetFile.getParentFile().mkdirs();
+            file.transferTo(targetFile);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+//        String fileName = file.getOriginalFilename();
+        FileDto fileDto=new FileDto();
+        fileDto.setSuccess(1);
+        fileDto.setUrl("/upload"+ "/" + name);
+//        fileDto.setUrl("/upload"+ "/" + fileName);
+
+
+
         String username=request.getParameter("username");
         String password=request.getParameter("upassword1");
         String email=request.getParameter("email");
         String sex=request.getParameter("usex");
 
-        user.setAvatarUrl(file);
+        user.setAvatarUrl(upload+"/" +name);
         user.setName(username);
         user.setPassword(password);
         user.setEmail(email);
@@ -98,13 +144,13 @@ public class IndexController {
 //        String b="https://tupian.qqw21.com/article/UploadPic/2014-9/201492111331720507.jpg";
 //        String c="https://tupian.qqw21.com/article/UploadPic/2014-9/201492111332416492.jpg";
 //        String d="https://tupian.qqw21.com/article/UploadPic/2014-9/201492111331422951.jpg";
-        String b="http://pic.uuhy.com/uploads/2012/06/26/emma-watson-celebrity.jpg";
-        String c="http://pic.uuhy.com/uploads/2012/06/26/emma-watson-actress.jpg";
-        String d="http://pic.uuhy.com/uploads/2012/06/26/actress-emma-watson.jpg";
-        String  s[]=new  String[]{b,c,d};
-        Random random=new Random();
-        Integer  f= random.nextInt(3);
-        user.setAvatarUrl(s[f]);
+//        String b="http://pic.uuhy.com/uploads/2012/06/26/emma-watson-celebrity.jpg";
+//        String c="http://pic.uuhy.com/uploads/2012/06/26/emma-watson-actress.jpg";
+//        String d="http://pic.uuhy.com/uploads/2012/06/26/actress-emma-watson.jpg";
+//        String  s[]=new  String[]{b,c,d};
+//        Random random=new Random();
+//        Integer  f= random.nextInt(3);
+//        user.setAvatarUrl(s[f]);
 
         user.setStatus(0);
 

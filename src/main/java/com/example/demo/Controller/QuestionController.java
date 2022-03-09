@@ -1,6 +1,5 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Model.Comment;
 import com.example.demo.Service.CommentService;
 import com.example.demo.Service.QuestionService;
 import com.example.demo.dto.CommentDTO;

@@ -79,11 +79,15 @@ public class EmailUtils {
 			//String ip = Inet4Address.getLocalHost().getHostAddress();
 			//String url = "http://localhost:80/jihuo&c="+Base64Utils.encode(user.getCode());
 			String ip = Inet4Address.getLocalHost().getHostAddress();
+
+
 			String  ipp="freecommunity.link";
 			String url = "http://"+ipp+":80/jihuo&c="+Base64Utils.encode(user.getCode());
+
+
 			//String url = "http://10.0.4.15:80/jihuo&c="+Base64Utils.encode(user.getCode());
 			//10.0.4.15
-			//String url = "http://"+ip+":8080/jihuo&c="+Base64Utils.encode(user.getCode());
+//			String url = "http://"+ip+":8088/jihuo&c="+Base64Utils.encode(user.getCode());
 			//设置邮件正文 setContent 可以使用html标签
 			message.setContent(user.getName()+",你好<br>欢迎注册小黑社区! 请点击链接进行激活:<a href='"+url+"'>点击此处</a>","text/html;charset=utf-8");
 			//设置邮件的发送时间 是立即发送

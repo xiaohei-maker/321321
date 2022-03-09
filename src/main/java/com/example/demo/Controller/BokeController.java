@@ -4,21 +4,14 @@ import com.example.demo.Model.Boke;
 import com.example.demo.Service.BokeService;
 import com.example.demo.Service.CommentService;
 import com.example.demo.Service.QuestionService;
-import com.example.demo.dto.CommentDTO;
 import com.example.demo.dto.PaginationDTO;
-import com.example.demo.dto.QuestionDTO;
-import com.example.demo.enums.CommentTypeEnum;
-import com.example.demo.exception.CustomizeErrorCode;
-import com.example.demo.exception.CustomizeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 public class BokeController {

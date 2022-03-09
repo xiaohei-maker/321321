@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html";charset="UTF-8"/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
@@ -25,15 +25,15 @@
 <!--            <div class="xian center"></div>-->
 <!--        </div>-->
 
-            <div  style="margin-top: 80px;margin-left: 700px;">
-                <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户激活
-            </div>
-        <div class="m-mod m-outside" style="margin-top: 140px;margin-left: 300px;">
-            <div class="regist-form-tit"><span>返回主页&gt;&gt;</span></div>
-            <div s>
-                <a href="/" target="_black">小黑社区</a>
-            </div>
-        </div>
+<!--            <div  style="margin-top: 80px;margin-left: 700px;">-->
+<!--                <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户激活-->
+<!--            </div>-->
+<!--        <div class="m-mod m-outside" style="margin-top: 140px;margin-left: 300px;">-->
+<!--            <div class="regist-form-tit"><span>返回主页&gt;&gt;</span></div>-->
+<!--            <div >-->
+<!--                <a href="/" target="_black">小黑社区</a>-->
+<!--            </div>-->
+<!--        </div>-->
         <div  style="margin-top: 110px;margin-left: 300px;"   >
 
             <p class="text-info" style="font-size: 20px;">注册成功 别忘记激活!</p>
@@ -43,5 +43,6 @@
         </div>
     </div>
 </div>
+<div th:insert="~{footer :: foot}"></div>
 </body>
 </html>
